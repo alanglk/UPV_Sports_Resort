@@ -2,6 +2,8 @@
 # UPV Sports Resort Project
 
 ## Forma de trabajar con Git
+A la hora de clonar el repositorio para desarrollar es muy importante seleccionar la opción __SSH__ para poder hacer `git pull` y `git push`. Si no tienes configurado el ordenador para trabajar con repositorios de GitHub por __SSH__ puedes segir [este turorial](https://github.com/alanglk/git_tutorial).
+
 Este proyecto es desarrollado por un grupo de 8 personas, por lo que es muy importante tener una gestión adecuada de las versiones. Para ello se va a hacer uso de la metodología _GitFlow_. Esta metodología consiste en dividir el proyecto en desarrollos independientes de features que se van incorporando en un proyecto común final de manera progresiva. Para realizar esto se definen tres tipos de ramas principales:
 
 - Rama __main__: Es la rama del proyecto final. No se puede trabajar directamente sobre esta rama. El único caso en el que se puede hacer un comit en este workspace es a la hora de publicar una versión "final" del proyecto.
