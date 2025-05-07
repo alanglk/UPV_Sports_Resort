@@ -10,8 +10,7 @@ public class PaddleAI : MonoBehaviour
     public float followAxis = 0f;
 
     // Start is called before the first frame update
-    void Start() {
-     }
+    void Start() {}
 
     void Update()
     {
