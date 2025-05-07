@@ -22,11 +22,15 @@ public class BallController : MonoBehaviour{
 			
             // LaunchBall
 		    ball.useGravity = true;
-            var launchData = CalculateLaunchData(initialTargetTransform.position, maxHeight);
-		    ball.velocity = launchData.initialVelocity;
+            LaunchBallToTarget(initialTargetTransform.position, maxHeight);
 		}
 
     }
+
+	public void LaunchBallToTarget(Vector3 target, float h){
+		var launchData = CalculateLaunchData(target, h);
+		ball.velocity = launchData.initialVelocity;
+	}
 
     LaunchData CalculateLaunchData(Vector3 target, float h) {
         // Target: the point to reach

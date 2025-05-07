@@ -2,58 +2,76 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
-public class PaddleAI : MonoBehaviour
-{
+[RequireComponent(typeof(Collider)), RequireComponent(typeof(Rigidbody))]
+public class PaddleAI : MonoBehaviour{
+
     public Transform ball;
-    public float speed = 5f;
-    public float followAxis = 0f;
+    public BallTrajectoryPredictor ballPredictor;
+    public BallController ballController;
+
+    public Transform targetTransform;
+    public float maxHeight = 6.0f;
+
+    public float maxSpeed = 1.0f;       // max entity possible speed (m/s)
+    public float minDistance = 0.5f;    // min distance (m) to compute the target point and speed
+
+    private Transform paddleTransform;
+    private Rigidbody paddleRigidbody;
 
     // Start is called before the first frame update
-    void Start() {}
-
-    void Update()
-    {
-        Vector3 targetPosition = transform.position;
-        targetPosition.z = Mathf.MoveTowards(transform.position.z, ball.position.z, speed * Time.deltaTime);
-        transform.position = targetPosition;
+    void Start() {
+        paddleTransform = GetComponent<Transform>();
+        paddleRigidbody = GetComponent<Rigidbody>();
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
+    void Update(){
 
-        if (collision.gameObject.CompareTag("Ball")){
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-            Vector3 direction = (Vector3.zero - transform.position).normalized;
-            rb.velocity = direction * 5f; // o usa AddForce si quieres un impulso
-        }
+        // Get current ball trajectory
+        ODE.ODEProblemSolution<double>? ballTrajectory = ballPredictor.GetBallTrajectory();
+        
+        // Move paddle to catch the ball
+        if (ballTrajectory != null)
+            MovePaddleToCatchBall(ballTrajectory.Value);
 
-    }
-    public Vector3 FindBestShot(Vector3 start, Vector3 target, Func<Vector3, List<Vector3>> simulateTrajectory, float tolerance = 0.2f){
-        float speedMin = 1f;
-        float speedMax = 10f;
-        int directions = 20;
+        // Check if the ball collides with the paddle and launch the ball if so
+        Vector3 direction = ball.position - paddleRigidbody.position;
+        float distanceToBall = direction.magnitude;
+        
+        if (distanceToBall < minDistance){
+            direction.Normalize();
 
-        for (float speed = speedMin; speed <= speedMax; speed += 0.5f){
-            for (int i = 0; i < directions; i++){
-                for (int j = 0; j < directions; j++){
-                    Vector3 dir = new Vector3(
-                        Mathf.Sin(i * Mathf.PI * 2 / directions),
-                        Mathf.Sin(j * Mathf.PI / directions),
-                        Mathf.Cos(i * Mathf.PI * 2 / directions)
-                    ).normalized;
-
-                    Vector3 velocity = dir * speed;
-                    List<Vector3> trajectory = simulateTrajectory(velocity);
-
-                    if (trajectory.Any(p => Vector3.Distance(p, target) < tolerance)){
-                        return velocity;
-                    }
+            RaycastHit hit;
+            if ( Physics.Raycast(paddleRigidbody.position, direction, out hit, minDistance) ){
+                if (hit.transform == ball){
+                    Debug.Log("La pala ha colisionado con la pelota!");
+                    ballController.LaunchBallToTarget(targetTransform.position, maxHeight);
                 }
             }
         }
 
-        return Vector3.zero; // No se encontró
+
     }
+    
+    void MovePaddleToCatchBall(ODE.ODEProblemSolution<double> ballTrajectory ){
+        // Calc interception point
+        Vector3 interceptPoint = paddleTransform.position;
+
+        for (int i = 0; i < ballTrajectory.TT.Count; i++){
+            Vector3 t_position = new Vector3((float) ballTrajectory.UU[i][0], (float) ballTrajectory.UU[i][1], (float) ballTrajectory.UU[i][2] );
+            float t_time = (float) ballTrajectory.TT[i];
+
+            float distanceToPoint = Vector3.Distance(paddleRigidbody.position, t_position);
+            float timeToReach = distanceToPoint / maxSpeed;
+
+            if(timeToReach <= t_time){
+                interceptPoint = t_position;
+                break;
+            }
+        }
+
+        paddleTransform.position = new Vector3(interceptPoint.x, interceptPoint.y, paddleTransform.position.z);
+    } 
 
 }

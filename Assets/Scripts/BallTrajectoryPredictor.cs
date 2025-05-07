@@ -6,7 +6,7 @@ using UnityEngine;
 // ODE FUNCTIONS ===================================================
 namespace ODE{
     public delegate void ODEFunction<T>(ref List<T> du, T t, List<T> u, List<T> p);
-    public delegate void CollisionHandler(ref List<double> u, List<double> du, double dt);
+    public delegate bool CollisionHandler(ref List<double> u, List<double> du, double dt);
 
     public struct ODEProblem<T>{
         // f(du, t, u, p) => du: derivada de u respecto a t
@@ -27,11 +27,13 @@ namespace ODE{
     public struct ODEProblemSolution<T>{
         public List<T> TT;              // List of timestamps
         public List<List<T>> UU;        // List of solutions
+        public List<List<T>> CU;        // List of colliding solutions
         public ODEProblem<T> Problem;   // EDO problem
 
-        public ODEProblemSolution(List<T> tt, List<List<T>> uu, ODEProblem<T> problem){
+        public ODEProblemSolution(List<T> tt, List<List<T>> uu, List<List<T>> cu, ODEProblem<T> problem){
             TT      = tt;
             UU      = uu;
+            CU      = cu;
             Problem = problem;
         }
     }
@@ -45,6 +47,7 @@ namespace ODE{
 
             var TT = new List<double> { t };
             var UU = new List<List<double>> { new List<double>(u) };
+            var CU = new List<List<double>>();
 
             var du = new List<double>(new double[u.Count]);
 
@@ -56,14 +59,16 @@ namespace ODE{
                     u[i] += dt * du[i];
 
                 // Collision detection
-                collisionHandler?.Invoke(ref u, du, dt);
+                bool collision = collisionHandler?.Invoke(ref u, du, dt) ?? false;
+                if (collision)
+                    CU.Add(new List<double>(u));
 
                 t += dt;
                 TT.Add(t);
                 UU.Add(new List<double>(u));
             }
 
-            return new ODEProblemSolution<double> { TT = TT, UU = UU, Problem = problem };
+            return new ODEProblemSolution<double> { TT = TT, UU = UU, CU = CU, Problem = problem };
         }
     }
 
@@ -76,13 +81,12 @@ namespace ODE{
 [RequireComponent(typeof(Collider)), RequireComponent(typeof(Rigidbody))]
 public class BallTrajectoryPredictor : MonoBehaviour{
     public double simulationTime = 3f;
-
-    public float substepThreshold = 0.5f; // Si la distancia al colisionar es < este valor, se subdivide
-
-    public LineRenderer lineRenderer = null;
+    public bool debug = true;
 
     private Rigidbody ball;
     private SphereCollider ballCollider;
+    
+    private ODE.ODEProblemSolution<double> ballTrajectory;
 
     // Ball ODE Function
     public static void GravityAndDragBall(ref List<double> du, double t, List<double> u, List<double> p){
@@ -108,14 +112,17 @@ public class BallTrajectoryPredictor : MonoBehaviour{
     }
 
     // Ball Collision Handler
-    public static void BallCollisionHandler(ref List<double> u, List<double> du, double dt, float ballRadius, PhysicMaterial ballMaterial){
+    public static bool BallCollisionHandler(ref List<double> u, List<double> du, double dt, float ballRadius, PhysicMaterial ballMaterial){
         Vector3 position = new Vector3((float)u[0], (float)u[1], (float)u[2]);
         Vector3 velocity = new Vector3((float)u[3], (float)u[4], (float)u[5]);
         Vector3 step = velocity * (float)dt;
+        bool collision = false;
 
         if (Physics.SphereCast(position, ballRadius, step.normalized, out RaycastHit hit, step.magnitude)){
             // Obtener el material de física del objeto con el que colisiona
             var colliderMaterial = hit.collider.material;
+            collision = true;
+            
             if (colliderMaterial != null){
                 // Parameters of the ball physics material
                 float ballRestitution       = ballMaterial.bounciness;
@@ -147,7 +154,10 @@ public class BallTrajectoryPredictor : MonoBehaviour{
                 u[4] = newVelocity.y;
                 u[5] = newVelocity.z;
             }
+
         }
+        
+        return collision;
     }
    
 
@@ -174,22 +184,33 @@ public class BallTrajectoryPredictor : MonoBehaviour{
         );
 
         // Solver
-        var solution = ODE.ODESolver.Euler(
+        ballTrajectory = ODE.ODESolver.Euler(
             ball_ode, 
             Time.fixedDeltaTime, 
             collisionHandler: (ref List<double> u, List<double> du, double dt) => {
-                BallCollisionHandler(ref u, du, dt, 0.05f, ballCollider.material);
+                return BallCollisionHandler(ref u, du, dt, 0.05f, ballCollider.material);
             });
         
+        
         // Render
-        if (lineRenderer is not null){
-            Vector3[] positions = solution.UU.Select(u => new Vector3((float)u[0], (float)u[1], (float)u[2])).ToArray();
-            lineRenderer.positionCount = positions.Length;
-            lineRenderer.SetPositions(positions);
+        if(debug){
+            for (int i = 0; i < ballTrajectory.UU.Count - 1; i++){
+                Vector3 currentPoint = new Vector3((float)ballTrajectory.UU[i][0], (float)ballTrajectory.UU[i][1], (float)ballTrajectory.UU[i][2]);
+                Vector3 nextPoint = new Vector3((float)ballTrajectory.UU[i + 1][0], (float)ballTrajectory.UU[i + 1][1], (float)ballTrajectory.UU[i + 1][2]);
+                Debug.DrawLine(currentPoint, nextPoint, Color.red, Time.fixedDeltaTime);
+            }
+
+            // Collisions
+            foreach(var cu in ballTrajectory.CU){
+                Vector3 pos = new Vector3((float)cu[0], (float)cu[1], (float)cu[2]);
+                Debug.DrawRay(pos, Vector3.up * 1.0f, Color.blue);
+            }
         }
 
-        
+    }
+
+    public ODE.ODEProblemSolution<double>? GetBallTrajectory(){
+        return ballTrajectory;
     }
 }
-
 
