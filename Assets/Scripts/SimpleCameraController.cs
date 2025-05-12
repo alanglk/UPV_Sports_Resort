@@ -68,7 +68,7 @@ public class SimpleCameraController : MonoBehaviour{
         AddMovement(KeyCode.S, Vector3.back);
         AddMovement(KeyCode.D, Vector3.right);
         AddMovement(KeyCode.A, Vector3.left);
-        AddMovement(KeyCode.Space, Vector3.up);
+        AddMovement(KeyCode.LeftShift, Vector3.up);
         AddMovement(KeyCode.LeftControl, Vector3.down);
         Vector3 direction = transform.TransformVector(moveInput.normalized);
 
