@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanonController : MonoBehaviour
+public class Canon2Controller : MonoBehaviour
 {
     public GameObject prefabPelota;
     public Transform puntoDisparo;
     public float fuerzaDisparo = 4f;
-    public float intervalo = 4f;
+    public float intervalo = 2f;
 
     // Start is called before the first frame update
     void Start()
