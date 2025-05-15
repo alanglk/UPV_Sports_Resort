@@ -9,5 +9,6 @@ EditorBuildSettings:
     path: Assets/escena_baseball.unity
     guid: 5650f8e3343834346bd75c5d7b559644
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 366b4d9def5dd47469ddb640f88c052d, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 6e4fb1fc6162300489325fa33fe3795c, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3da239c7f4813b453a86c3f1d55963b0, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7353768dad8e8bb41b1c06bbd05eb705, type: 2}
