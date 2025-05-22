@@ -5,9 +5,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class BallController : MonoBehaviour{   
-    public Transform initialTargetTransform;
-    public float maxHeight = 6.0f;
-    public bool debugPath;
     private Rigidbody ball;
 
     // Start is called before the first frame update
@@ -17,15 +14,7 @@ public class BallController : MonoBehaviour{
     }
 
     // Update is called once per frame
-    void Update(){
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			
-            // LaunchBall
-		    ball.useGravity = true;
-            LaunchBallToTarget(initialTargetTransform.position, maxHeight);
-		}
-
-    }
+    void Update(){}
 
 	public void LaunchBallToTarget(Vector3 target, float h){
 		var launchData = CalculateLaunchData(target, h);

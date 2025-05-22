@@ -71,7 +71,7 @@ public class PaddleAI : MonoBehaviour{
             }
         }
 
-        paddleTransform.position = new Vector3(interceptPoint.x, interceptPoint.y, paddleTransform.position.z);
+        paddleTransform.position = new Vector3(paddleTransform.position.x, interceptPoint.y, interceptPoint.z);
     } 
 
 }
