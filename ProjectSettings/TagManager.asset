@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ball_baseball
+  - ball_football
+  - ball_soccer
+  - ball_basketball
   layers:
   - Default
   - TransparentFX

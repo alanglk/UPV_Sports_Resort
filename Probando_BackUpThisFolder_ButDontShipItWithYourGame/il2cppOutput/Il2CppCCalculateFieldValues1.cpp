@@ -792,6 +792,8 @@ struct GUISkin_t8C65CE1424D4B5D8D73022E266BDAD3BDE8612D9;
 struct GUIStyle_t20BA2F9F3FE9D13AAA607EEEBE5547835A6F6580;
 // UnityEngine.GUIStyleState
 struct GUIStyleState_t7A948723D9DCDFD8EE4F418B6EC909C18E023F95;
+// GameManager
+struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6;
 // UnityEngine.GameObject
 struct GameObject_t76FEDD663AB33C991A9C9A23129337651094216F;
 // UnityEngineInternal.GenericStack
@@ -18833,6 +18835,15 @@ struct BaseAffordanceStateProvider_t5721F9B16D6C029D832F8D6FA0A47326A581D443  : 
 	float ___m_MaxTransitionDuration_14;
 };
 
+// BatCollider
+struct BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	// System.Single BatCollider::hitForce
+	float ___hitForce_4;
+	// GameManager BatCollider::gameManager
+	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___gameManager_5;
+};
+
 // CanonController
 struct CanonController_tAF7E55A4EB4F222555EED419639293901393DEE8  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -18844,6 +18855,17 @@ struct CanonController_tAF7E55A4EB4F222555EED419639293901393DEE8  : public MonoB
 	float ___fuerzaDisparo_6;
 	// System.Single CanonController::intervalo
 	float ___intervalo_7;
+};
+
+// CanonController_SinForce
+struct CanonController_SinForce_tDF9F0A802C2689B94CDDE9E10B4D06300F64DE72  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	// UnityEngine.GameObject CanonController_SinForce::prefabPelota
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___prefabPelota_4;
+	// UnityEngine.Transform CanonController_SinForce::puntoDisparo
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___puntoDisparo_5;
+	// System.Single CanonController_SinForce::intervalo
+	float ___intervalo_6;
 };
 
 // UnityEngine.XR.OpenXR.Samples.ControllerSample.DisplayDeviceInfoFromActionISX
@@ -18867,6 +18889,15 @@ struct EventTrigger_tAEBFB7A16CA99343EA87722F78884BF8646BAE1B  : public MonoBeha
 // UnityEngine.XR.OpenXR.Features.Interactions.EyeGazeInteraction
 struct EyeGazeInteraction_t4EAAB76C8910B2B25C4494294BAEDF8961147158  : public OpenXRInteractionFeature_t643728BC4EB54CC2852F8D9921027BEE62E7682E
 {
+};
+
+// GameManager
+struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	// UnityEngine.UI.Text GameManager::scoreText
+	Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* ___scoreText_4;
+	// System.Int32 GameManager::score
+	int32_t ___score_5;
 };
 
 // UnityEngine.XR.OpenXR.Features.Interactions.HTCViveControllerProfile
@@ -19063,6 +19094,15 @@ struct OpenXRRestarter_t59BB3482FA6ED413E66F91ABE39820D83AAE8AA1  : public MonoB
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___onAfterSuccessfulRestart_8;
 	// UnityEngine.Coroutine UnityEngine.XR.OpenXR.OpenXRRestarter::m_Coroutine
 	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ___m_Coroutine_10;
+};
+
+// PelotaMovimiento
+struct PelotaMovimiento_t96156D4E1064C0D351A8BFEF062A0B07710D174A  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	// UnityEngine.Transform PelotaMovimiento::jugador
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___jugador_4;
+	// System.Single PelotaMovimiento::velocidad
+	float ___velocidad_5;
 };
 
 // UnityEngine.SpatialTracking.TrackedPoseDriver
@@ -26898,9 +26938,17 @@ struct AutomaticTrackingModeChanger_t6B262B9AF83228D5FF56EB10DBD11B06221C545E_St
 
 // UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.State.BaseAffordanceStateProvider
 
+// BatCollider
+
+// BatCollider
+
 // CanonController
 
 // CanonController
+
+// CanonController_SinForce
+
+// CanonController_SinForce
 
 // UnityEngine.XR.OpenXR.Samples.ControllerSample.DisplayDeviceInfoFromActionISX
 
@@ -26913,6 +26961,10 @@ struct AutomaticTrackingModeChanger_t6B262B9AF83228D5FF56EB10DBD11B06221C545E_St
 // UnityEngine.XR.OpenXR.Features.Interactions.EyeGazeInteraction
 
 // UnityEngine.XR.OpenXR.Features.Interactions.EyeGazeInteraction
+
+// GameManager
+
+// GameManager
 
 // UnityEngine.XR.OpenXR.Features.Interactions.HTCViveControllerProfile
 
@@ -26983,6 +27035,10 @@ struct OpenXRRestarter_t59BB3482FA6ED413E66F91ABE39820D83AAE8AA1_StaticFields
 };
 
 // UnityEngine.XR.OpenXR.OpenXRRestarter
+
+// PelotaMovimiento
+
+// PelotaMovimiento
 
 // UnityEngine.SpatialTracking.TrackedPoseDriver
 
@@ -31129,31 +31185,43 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4916[6] =
 	static_cast<int32_t>(offsetof(MockRuntime_tC5F1019CA2D3E89010E3A3BFC89834251257B2AF_StaticFields, ___s_AfterFunctionCallbacks_16)),static_cast<int32_t>(offsetof(MockRuntime_tC5F1019CA2D3E89010E3A3BFC89834251257B2AF_StaticFields, ___s_BeforeFunctionCallbacks_17)),static_cast<int32_t>(offsetof(MockRuntime_tC5F1019CA2D3E89010E3A3BFC89834251257B2AF_StaticFields, ___onScriptEvent_18)),0,static_cast<int32_t>(offsetof(MockRuntime_tC5F1019CA2D3E89010E3A3BFC89834251257B2AF, ___ignoreValidationErrors_20)),0,};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4918[3] = 
 {
-	static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___IsTextualNodeBitmap_0)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___CanReadContentAsBitmap_1)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___HasValueBitmap_2)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4921[4] = 
-{
-	0,static_cast<int32_t>(offsetof(ConformanceAutomationFeature_t0C2E5D391DBCC81F1B86F2D7E34719B7D292BFF7_StaticFields, ___xrInstance_17)),static_cast<int32_t>(offsetof(ConformanceAutomationFeature_t0C2E5D391DBCC81F1B86F2D7E34719B7D292BFF7_StaticFields, ___xrSession_18)),0,};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4923[3] = 
-{
 	static_cast<int32_t>(offsetof(HandAnimatorController_tDDF5639940193291093F9E8D9A7D45502C84AABA, ___triggerAction_4)),static_cast<int32_t>(offsetof(HandAnimatorController_tDDF5639940193291093F9E8D9A7D45502C84AABA, ___gripAction_5)),static_cast<int32_t>(offsetof(HandAnimatorController_tDDF5639940193291093F9E8D9A7D45502C84AABA, ___anim_6)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4926[8] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4921[8] = 
 {
 	static_cast<int32_t>(offsetof(WalkInPlaceLocomotion_t9631FAFC7982308E1A8463F08E6BE0EB556C5F63, ___characterController_4)),static_cast<int32_t>(offsetof(WalkInPlaceLocomotion_t9631FAFC7982308E1A8463F08E6BE0EB556C5F63, ___leftHand_5)),static_cast<int32_t>(offsetof(WalkInPlaceLocomotion_t9631FAFC7982308E1A8463F08E6BE0EB556C5F63, ___rightHand_6)),static_cast<int32_t>(offsetof(WalkInPlaceLocomotion_t9631FAFC7982308E1A8463F08E6BE0EB556C5F63, ___previousPosLeft_7)),static_cast<int32_t>(offsetof(WalkInPlaceLocomotion_t9631FAFC7982308E1A8463F08E6BE0EB556C5F63, ___previousPosRight_8)),static_cast<int32_t>(offsetof(WalkInPlaceLocomotion_t9631FAFC7982308E1A8463F08E6BE0EB556C5F63, ___direction_9)),static_cast<int32_t>(offsetof(WalkInPlaceLocomotion_t9631FAFC7982308E1A8463F08E6BE0EB556C5F63, ___gravity_10)),static_cast<int32_t>(offsetof(WalkInPlaceLocomotion_t9631FAFC7982308E1A8463F08E6BE0EB556C5F63, ___speed_11)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4927[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4922[2] = 
+{
+	static_cast<int32_t>(offsetof(BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE, ___hitForce_4)),static_cast<int32_t>(offsetof(BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE, ___gameManager_5)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4923[4] = 
 {
 	static_cast<int32_t>(offsetof(CanonController_tAF7E55A4EB4F222555EED419639293901393DEE8, ___prefabPelota_4)),static_cast<int32_t>(offsetof(CanonController_tAF7E55A4EB4F222555EED419639293901393DEE8, ___puntoDisparo_5)),static_cast<int32_t>(offsetof(CanonController_tAF7E55A4EB4F222555EED419639293901393DEE8, ___fuerzaDisparo_6)),static_cast<int32_t>(offsetof(CanonController_tAF7E55A4EB4F222555EED419639293901393DEE8, ___intervalo_7)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4933[6] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4924[3] = 
+{
+	static_cast<int32_t>(offsetof(CanonController_SinForce_tDF9F0A802C2689B94CDDE9E10B4D06300F64DE72, ___prefabPelota_4)),static_cast<int32_t>(offsetof(CanonController_SinForce_tDF9F0A802C2689B94CDDE9E10B4D06300F64DE72, ___puntoDisparo_5)),static_cast<int32_t>(offsetof(CanonController_SinForce_tDF9F0A802C2689B94CDDE9E10B4D06300F64DE72, ___intervalo_6)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4925[2] = 
+{
+	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___scoreText_4)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___score_5)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4926[2] = 
+{
+	static_cast<int32_t>(offsetof(PelotaMovimiento_t96156D4E1064C0D351A8BFEF062A0B07710D174A, ___jugador_4)),static_cast<int32_t>(offsetof(PelotaMovimiento_t96156D4E1064C0D351A8BFEF062A0B07710D174A, ___velocidad_5)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4928[3] = 
+{
+	static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___IsTextualNodeBitmap_0)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___CanReadContentAsBitmap_1)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___HasValueBitmap_2)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4931[4] = 
+{
+	0,static_cast<int32_t>(offsetof(ConformanceAutomationFeature_t0C2E5D391DBCC81F1B86F2D7E34719B7D292BFF7_StaticFields, ___xrInstance_17)),static_cast<int32_t>(offsetof(ConformanceAutomationFeature_t0C2E5D391DBCC81F1B86F2D7E34719B7D292BFF7_StaticFields, ___xrSession_18)),0,};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4937[6] = 
 {
 	static_cast<int32_t>(offsetof(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_StaticFields, ___kEditorToPlayerRequestDebuggerOutput_16)),static_cast<int32_t>(offsetof(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_StaticFields, ___kPlayerToEditorSendDebuggerOutput_17)),static_cast<int32_t>(offsetof(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA, ___cacheSize_18)),static_cast<int32_t>(offsetof(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA, ___perThreadCacheSize_19)),static_cast<int32_t>(offsetof(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA, ___lutOffset_20)),0,};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4937[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4941[4] = 
 {
 	static_cast<int32_t>(sizeof(RuntimeObject)),0,0,0,};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4946[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4950[4] = 
 {
 	static_cast<int32_t>(offsetof(TargetDevice_t45083238226E37FD31745CC48711F642E425F620, ___visibleName_0)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(TargetDevice_t45083238226E37FD31745CC48711F642E425F620, ___manifestName_1)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(TargetDevice_t45083238226E37FD31745CC48711F642E425F620, ___enabled_2)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(TargetDevice_t45083238226E37FD31745CC48711F642E425F620, ___active_3)) + static_cast<int32_t>(sizeof(RuntimeObject)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4947[1] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4951[1] = 
 {
 	0,};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4949[3] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4953[3] = 
 {
 	0,static_cast<int32_t>(offsetof(OculusQuestFeature_tF5FA7128BB36F546D5CF7094A93B812DAC667810, ___targetQuest_17)),static_cast<int32_t>(offsetof(OculusQuestFeature_tF5FA7128BB36F546D5CF7094A93B812DAC667810, ___targetQuest2_18)),};
