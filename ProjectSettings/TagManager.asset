@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ball
   - Ground
+  - Bat
+  - Table
+  - OpponentField
+  - MyField
   layers:
   - Default
   - TransparentFX
