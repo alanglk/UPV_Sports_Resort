@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3106986717409217744}
   - component: {fileID: 2067680408925340533}
   - component: {fileID: 4275348888553486271}
-  - component: {fileID: 6158912161303441429}
   - component: {fileID: 1004126290051659933}
+  - component: {fileID: 3882358811585087531}
   m_Layer: 0
   m_Name: Basketball
   m_TagString: Untagged
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6158912161303441429
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2330027152532625002}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2342459666381787544, guid: f2a7e37ff5cd3874c8ca19f7afec5f7f, type: 3}
 --- !u!54 &1004126290051659933
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,3 +101,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &3882358811585087531
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330027152532625002}
+  m_Material: {fileID: 13400000, guid: 34057e81f8fba7c23b1bfd7ec05942ff, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.12000003
+  m_Center: {x: 0, y: 0, z: 0}

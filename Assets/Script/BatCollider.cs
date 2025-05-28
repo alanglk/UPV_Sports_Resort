@@ -20,7 +20,7 @@ public class BatCollider : MonoBehaviour
 
     private void StoreResults(GameObject ball)
     {
-        int pointsToAdd = 0;
+        // int pointsToAdd = 0;
 
         if (ball.CompareTag("ball_baseball"))
             gameManager.AddScore(4);
@@ -38,11 +38,11 @@ public class BatCollider : MonoBehaviour
         Rigidbody rb = collision.rigidbody;
         if (rb != null)
         {
-            // Dirección desde el bate hacia el centro de contacto
+            // Direcciï¿½n desde el bate hacia el centro de contacto
             Vector3 hitDirection = collision.contacts[0].point - transform.position;
             hitDirection = hitDirection.normalized;
 
-            // Añadir impulso
+            // Aï¿½adir impulso
             rb.AddForce(hitDirection * hitForce, ForceMode.Impulse);
         }
     }

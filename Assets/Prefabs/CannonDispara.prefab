@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4211685762416436966}
-  - component: {fileID: 3325137210150396467}
+  - component: {fileID: 2926441576792653152}
   m_Layer: 0
   m_Name: CannonDispara
   m_TagString: Untagged
@@ -65,7 +65,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3325137210150396467
+--- !u!114 &2926441576792653152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,10 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b122071e0947c246b9cf5a8533924d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPelota: {fileID: 0}
-  puntoDisparo: {fileID: 3325137210040681534}
-  fuerzaDisparo: 5
-  intervalo: 4
+  ballPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  targetPoint: {fileID: 0}
+  maxHeight: 6
+  launchDelay: 3
 --- !u!1001 &4211685761624572566
 PrefabInstance:
   m_ObjectHideFlags: 0

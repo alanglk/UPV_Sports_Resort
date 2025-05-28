@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7064630111771980041}
   - component: {fileID: 6171409496724569772}
   - component: {fileID: 8233063305702115942}
-  - component: {fileID: 3383705383246941334}
   - component: {fileID: 7152016813208805883}
+  - component: {fileID: 8271151488800854793}
   m_Layer: 0
   m_Name: Soccer
   m_TagString: Untagged
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3383705383246941334
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7584425730218535859}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8209733089858529943, guid: c19c4d581da21544d8650aa084ac1bd8, type: 3}
 --- !u!54 &7152016813208805883
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,3 +101,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &8271151488800854793
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584425730218535859}
+  m_Material: {fileID: 13400000, guid: 34057e81f8fba7c23b1bfd7ec05942ff, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.09840783
+  m_Center: {x: 0, y: 0, z: 0}
