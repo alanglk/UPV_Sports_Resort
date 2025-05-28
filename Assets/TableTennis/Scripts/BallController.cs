@@ -10,7 +10,7 @@ public class BallController : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
         ball = GetComponent<Rigidbody>();
-        ball.useGravity = false;
+        // ball.useGravity = false;
     }
 
     // Update is called once per frame
