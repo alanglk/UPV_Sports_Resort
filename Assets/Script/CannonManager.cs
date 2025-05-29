@@ -18,7 +18,7 @@ public class CannonManager : MonoBehaviour {
     // [Header("UI")]
     // public Text hitCounterText;
 
-    // private int hitCount = 0;
+    private int hitCount = 0;
 
     void Start() {
         StartCoroutine(LaunchRoutine());
@@ -57,6 +57,11 @@ public class CannonManager : MonoBehaviour {
         Vector3 velocityXZ = displacementXZ / time;
 
         return velocityXZ + velocityY * -Mathf.Sign(gravity);
+    }
+
+    public void AddScore(int score) {
+        hitCount = hitCount + score;
+        // UpdateHitUI();
     }
 
     // public void RegisterHit() {

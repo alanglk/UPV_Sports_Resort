@@ -2,11 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+baseball_game.apk
 Assets/Materials/Texture/brown_mud_leaves_01_nor_gl_8k.exr
 Assets/Materials/Texture/brown_mud_leaves_01_disp_8k.png
 Assets/Sky/autumn_field_8k.exr
 
 .utmp/
+.vscode/
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/

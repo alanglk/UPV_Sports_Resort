@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8938975504140302125}
   - component: {fileID: 6572688995655090055}
   - component: {fileID: 8487163797740842250}
-  - component: {fileID: 3681814772388166673}
+  - component: {fileID: 5024154731390482191}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -131,7 +131,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3681814772388166673
+--- !u!114 &5024154731390482191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2683190393751717942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c549514506fad30f8fb216f95f09468, type: 3}
+  m_Script: {fileID: 11500000, guid: 30d75d4ce23db0247b0d1618b7bc9eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitForce: 10
+  hitForce: 20
+  gameManager: {fileID: 0}

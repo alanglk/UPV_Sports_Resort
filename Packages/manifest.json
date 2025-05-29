@@ -2,6 +2,8 @@
   "dependencies": {
     "com.unity.2d.animation": "7.0.13",
     "com.unity.inputsystem": "1.7.0",
+    "com.unity.textmeshpro": "3.0.9",
+    "com.unity.toolchain.linux-x86_64": "2.0.10",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.10",
     "com.unity.xr.interaction.toolkit": "2.4.3",
     "com.unity.xr.management": "4.2.1",

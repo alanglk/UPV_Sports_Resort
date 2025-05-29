@@ -11,7 +11,7 @@ public class BatCollider : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         GameObject ball = collision.gameObject;
-        if (ball.CompareTag("ball_baseball") || ball.CompareTag("ball_football") || ball.CompareTag("ball_soccer") || ball.CompareTag("ball_basketball"))
+        if (ball.CompareTag("ball_baseball") || ball.CompareTag("ball_soccer") || ball.CompareTag("ball_tennis") || ball.CompareTag("ball_basketball"))
         {
             StoreResults(ball);
             LaunchBall(collision);
@@ -23,11 +23,11 @@ public class BatCollider : MonoBehaviour
         // int pointsToAdd = 0;
 
         if (ball.CompareTag("ball_baseball"))
-            gameManager.AddScore(4);
-        else if (ball.CompareTag("ball_football"))
             gameManager.AddScore(3);
-        else if (ball.CompareTag("ball_soccer"))
+        else if (ball.CompareTag("ball_tennis"))
             gameManager.AddScore(2);
+        else if (ball.CompareTag("ball_soccer"))
+            gameManager.AddScore(1);
         else if (ball.CompareTag("ball_basketball"))
             gameManager.AddScore(1);
 

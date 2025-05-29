@@ -4,7 +4,7 @@ public class BatRV : MonoBehaviour {
     public float hitForce = 8f;
 
     void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Ball")) {
+        if (other.CompareTag("ball_soccer")) {
             Rigidbody rb = other.GetComponent<Rigidbody>();
 
             // Estimate swing direction from bat's velocity
