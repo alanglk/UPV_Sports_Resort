@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4202547778439917739}
   - component: {fileID: 2141045706093511777}
   - component: {fileID: 5799329414379356051}
-  - component: {fileID: 1451055200870153364}
+  - component: {fileID: 1249482207817467683}
   m_Layer: 0
   m_Name: Baseball
-  m_TagString: Untagged
+  m_TagString: ball_baseball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,24 +94,23 @@ Rigidbody:
   m_GameObject: {fileID: 483707917963093428}
   serializedVersion: 2
   m_Mass: 0.145
-  m_Drag: 0.05
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!64 &1451055200870153364
-MeshCollider:
+  m_CollisionDetection: 1
+--- !u!135 &1249482207817467683
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483707917963093428}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 34057e81f8fba7c23b1bfd7ec05942ff, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8279484070357006803, guid: b7701c98dac628544b7114fee4274365, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.037999995
+  m_Center: {x: 0, y: 0, z: 0}

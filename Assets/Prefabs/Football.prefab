@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8328036219294702495}
   - component: {fileID: 6086570472029630293}
   - component: {fileID: 8834800924252391393}
-  - component: {fileID: 8221885054096303285}
+  - component: {fileID: 5817727635428962998}
   m_Layer: 0
   m_Name: Football
   m_TagString: Untagged
@@ -101,17 +101,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &8221885054096303285
-MeshCollider:
+--- !u!135 &5817727635428962998
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5726093729125273216}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 34057e81f8fba7c23b1bfd7ec05942ff, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5371904466710671566, guid: db2f4a5c0acbc43459e37d37a776413f, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.09
+  m_Center: {x: 0, y: 0, z: 0}

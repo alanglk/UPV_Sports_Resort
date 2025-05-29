@@ -8,6 +8,7 @@ TagManager:
   - ball_football
   - ball_soccer
   - ball_basketball
+  - ball_tennis
   layers:
   - Default
   - TransparentFX
