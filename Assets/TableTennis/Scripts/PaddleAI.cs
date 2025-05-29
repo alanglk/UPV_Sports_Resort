@@ -11,6 +11,7 @@ public class PaddleAI : MonoBehaviour
     public Transform ball;
     public BallTrajectoryPredictor ballPredictor;
     public BallController ballController;
+    public PointsCounter ballPointsCounter;
 
     public Transform targetTransform;
     public float maxHeight = 6.0f;
@@ -29,7 +30,14 @@ public class PaddleAI : MonoBehaviour
 
     void Update()
     {
+        if (ballPointsCounter.ballState == PointsCounter.BallState.BouncedOnOpponentField)
+            OpponentAction();
 
+    }
+
+
+    void OpponentAction()
+    {
         // Get current ball trajectory
         ODE.ODEProblemSolution<double>? ballTrajectory = ballPredictor.GetBallTrajectory();
 
@@ -54,9 +62,8 @@ public class PaddleAI : MonoBehaviour
                 }
             }
         }
-
-
     }
+
 
     void MovePaddleToCatchBall(ODE.ODEProblemSolution<double> ballTrajectory){
         float paddleX = paddleTransform.position.x;
