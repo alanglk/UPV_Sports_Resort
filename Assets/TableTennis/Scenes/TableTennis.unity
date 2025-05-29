@@ -421,7 +421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324352377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.864, y: -1.1, z: 0.474}
+  m_LocalPosition: {x: 1.7, y: -1.1, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -844,6 +844,10 @@ PrefabInstance:
     - target: {fileID: 726079139407410118, guid: f49f097561511dd499970e7f53740fdd, type: 3}
       propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 726079139407410118, guid: f49f097561511dd499970e7f53740fdd, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5722168504380414926, guid: f49f097561511dd499970e7f53740fdd, type: 3}
       propertyPath: m_RootOrder
@@ -1423,7 +1427,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.019349363, y: 0.002352921, z: 0.020000009}
+  m_Size: {x: 0.019349363, y: 0.003, z: 0.020000009}
   m_Center: {x: 0.0049626627, y: -1.4593084e-12, z: -0.000000003724943}
 --- !u!1001 &1148748751
 PrefabInstance:
@@ -2222,13 +2226,17 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 1416618337540467265, guid: 25636c53f9843754fbeef86dc2b7fe49, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1416618337540467269, guid: 25636c53f9843754fbeef86dc2b7fe49, type: 3}
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1416618337540467269, guid: 25636c53f9843754fbeef86dc2b7fe49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.063
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1416618337540467269, guid: 25636c53f9843754fbeef86dc2b7fe49, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2236,7 +2244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1416618337540467269, guid: 25636c53f9843754fbeef86dc2b7fe49, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.232
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1416618337540467269, guid: 25636c53f9843754fbeef86dc2b7fe49, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2452,6 +2460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 500207350}
   ballRespawning: {fileID: 4593407690669017473}
+  sonidoPunto: {fileID: 8300000, guid: 1c86c64c975af054180c1d7dd13059b8, type: 3}
   ballState: 0
 --- !u!114 &4593407690669017475
 MonoBehaviour:

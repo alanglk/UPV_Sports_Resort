@@ -8,6 +8,9 @@ public class PointsCounter : MonoBehaviour
 
     public Respawning ballRespawning;
 
+    public AudioClip sonidoPunto;
+    private AudioSource audioSource;
+
     public enum BallState
     {
         WaitingForHit,
@@ -20,9 +23,12 @@ public class PointsCounter : MonoBehaviour
     public BallState ballState = BallState.WaitingForHit;
     private bool isFirstServe = true;
 
+
     void Start()
     {
-        UpdateScoreText(score);
+        audioSource = GetComponent<AudioSource>();
+        if (scoreText != null)
+            scoreText.text = "Score: " + score;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -53,13 +59,15 @@ public class PointsCounter : MonoBehaviour
             {
                 if (ballState == BallState.BouncedOnMyField)
                 {
-                    score++;
-                    UpdateScoreText(score);
+                    PlayerPoint();
                     isFirstServe = false; // Después del primer punto, cambia a modo normal
-                    ballState = BallState.BouncedOnOpponentField;
                 }
                 else
-                    RespawnBall();
+                {
+                    // Se sigue jugando, pero no se puntúa
+                    ballState = BallState.BouncedOnOpponentField;
+                    isFirstServe = false;
+                }
             }
         }
 
@@ -69,17 +77,18 @@ public class PointsCounter : MonoBehaviour
         {
             if (other.gameObject.CompareTag("MyField") && ballState == BallState.HitByOpponent)
                 ballState = BallState.WaitingForHit;
-            
-            if (other.gameObject.CompareTag("OpponentField") && ballState == BallState.HitByPaddle){
-                score++;
-                UpdateScoreText(score);
-                ballState = BallState.BouncedOnOpponentField;
-            }
+
+            if (other.gameObject.CompareTag("OpponentField") && ballState == BallState.HitByPaddle)
+                PlayerPoint();
         }
     }
 
-    void UpdateScoreText(int score)
-    {
+    void PlayerPoint(){
+        score++;
+        ballState = BallState.BouncedOnOpponentField;
+
+        audioSource.PlayOneShot(sonidoPunto);
+
         if (scoreText != null)
             scoreText.text = "Score: " + score;
     }

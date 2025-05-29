@@ -5,7 +5,7 @@ public class Respawning : MonoBehaviour
 {
     public Transform respawnPoint; // Asigna el transform de tu objeto respawn en el inspector
     public string groundTag = "Ground"; // El tag que le pongas al suelo
-    public float respawningDelay = 1.5f;
+    public float respawningDelay = 0.1f;
     public bool isTriggered = false; // Si esta en true, se llama manualmente al respawn
 
     private bool isRespawning = false; // Nueva variable para controlar el respawn
