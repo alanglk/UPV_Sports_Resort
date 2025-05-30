@@ -19,17 +19,21 @@ public class GameManager  : MonoBehaviour
     
     [Header("Timing")]
     private float tiempoRestante = 120f;
-
     public TMP_Text timerText;
     public TMP_Text scoreText;
-    
+
     private int score = 0;
     private bool juegoActivo = true;
+
+    public AudioClip hitSound;
+    private AudioSource audioSource;
 
     void Start()
     {
         scoreText.text = "Score: 0";
         timerText.text = "Time: 02:00";
+        audioSource = GetComponent<AudioSource>();
+
         StartCoroutine(LaunchRoutine());
         // UpdateScoreUI();
     }
@@ -52,6 +56,7 @@ public class GameManager  : MonoBehaviour
         while (tiempoRestante > 0f) {
             yield return new WaitForSeconds(launchInterval);
             LaunchRandomCannon();
+            audioSource.PlayOneShot(hitSound);
             // int minutes = Mathf.FloorToInt(tiempoRestante / 60f);
             // int seconds = Mathf.FloorToInt(tiempoRestante % 60f);
             // tiempoRestante -= Time.deltaTime;
@@ -70,7 +75,6 @@ public class GameManager  : MonoBehaviour
 
         Vector3 velocity = CalculateLaunchVelocity(target.position, cannon.position, maxHeight);
         rb.velocity = velocity;
-
         // Tag it for the bat to detect
         Destroy(ball, 5f);
     }

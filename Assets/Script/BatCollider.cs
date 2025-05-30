@@ -8,6 +8,13 @@ public class BatCollider : MonoBehaviour
     public float hitForce = 20f;
     public GameManager gameManager;
 
+    public AudioClip hitSound;
+    private AudioSource audioSource;
+
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         GameObject ball = collision.gameObject;
@@ -44,6 +51,7 @@ public class BatCollider : MonoBehaviour
 
             // A�adir impulso
             rb.AddForce(hitDirection * hitForce, ForceMode.Impulse);
+            audioSource.PlayOneShot(hitSound);
         }
     }
 }
