@@ -21815,6 +21815,10 @@ struct BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE  : public MonoBehav
 	float ___hitForce_4;
 	// GameManager BatCollider::gameManager
 	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___gameManager_5;
+	// UnityEngine.AudioClip BatCollider::hitSound
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___hitSound_6;
+	// UnityEngine.AudioSource BatCollider::audioSource
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSource_7;
 };
 
 // BatRV
@@ -36434,9 +36438,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4635[2] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4636[5] = 
 {
 	static_cast<int32_t>(offsetof(BallTrajectoryPredictor_tCE24BD4DD76E0A6B56CC1CD14C6FF6A42059CB2A, ___simulationTime_4)),static_cast<int32_t>(offsetof(BallTrajectoryPredictor_tCE24BD4DD76E0A6B56CC1CD14C6FF6A42059CB2A, ___debug_5)),static_cast<int32_t>(offsetof(BallTrajectoryPredictor_tCE24BD4DD76E0A6B56CC1CD14C6FF6A42059CB2A, ___ball_6)),static_cast<int32_t>(offsetof(BallTrajectoryPredictor_tCE24BD4DD76E0A6B56CC1CD14C6FF6A42059CB2A, ___ballCollider_7)),static_cast<int32_t>(offsetof(BallTrajectoryPredictor_tCE24BD4DD76E0A6B56CC1CD14C6FF6A42059CB2A, ___ballTrajectory_8)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4637[2] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4637[4] = 
 {
-	static_cast<int32_t>(offsetof(BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE, ___hitForce_4)),static_cast<int32_t>(offsetof(BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE, ___gameManager_5)),};
+	static_cast<int32_t>(offsetof(BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE, ___hitForce_4)),static_cast<int32_t>(offsetof(BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE, ___gameManager_5)),static_cast<int32_t>(offsetof(BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE, ___hitSound_6)),static_cast<int32_t>(offsetof(BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE, ___audioSource_7)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4638[1] = 
 {
 	static_cast<int32_t>(offsetof(BatRV_tA2603ABE0CDB936882592DD01F4750D62977D783, ___hitForce_4)),};

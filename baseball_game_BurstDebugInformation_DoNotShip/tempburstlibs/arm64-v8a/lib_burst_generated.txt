@@ -113,11 +113,11 @@ Library: lib_burst_generated
 --compilation-defines=TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 --compilation-defines=UNITY_POST_PROCESSING_STACK_V2
 --compilation-defines=USE_INPUT_SYSTEM_POSE_CONTROL
---compilation-defines=CSHARP_7_OR_LATER
---compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_ANIMATION
 --compilation-defines=PACKAGE_UITOOLKIT
+--compilation-defines=CSHARP_7_OR_LATER
+--compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=INPUT_SYSTEM_POSE_VALID
 --compilation-defines=INCLUDE_PHYSICS_MODULE
 --compilation-defines=INCLUDE_UGUI
@@ -138,19 +138,20 @@ Library: lib_burst_generated
 --compilation-defines=UNITY_INPUT_SYSTEM
 --generate-link-xml=Temp/burst.link.xml
 --output=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/tempburstlibs/arm64-v8a/lib_burst_generated
---root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/UnityEngine.SpatialTracking.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/UnityEngine.UI.dll
+--root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/UnityEngine.SpatialTracking.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.XR.OpenXR.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.XR.CoreUtils.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.XR.Interaction.Toolkit.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.Mathematics.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/UnityEngine.XR.LegacyInputHelpers.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.InputSystem.dll
+--root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.TextMeshPro.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.Burst.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.2D.Animation.Runtime.dll
+--root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Assembly-CSharp.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.XR.Management.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.2D.IK.Runtime.dll
---root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Assembly-CSharp.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.InputSystem.ForUI.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.2D.Common.Runtime.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/ControllerSample.dll
@@ -163,7 +164,6 @@ Library: lib_burst_generated
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.XR.OpenXR.Features.RuntimeDebugger.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.XR.OpenXR.Features.OculusQuestSupport.dll
---root-assembly=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/Unity.TextMeshPro.dll
 --assembly-folder=/home/aloplarsal/Documents/master/rv/UPV_Sports_Resort/Temp/StagingArea/Data/Managed/
 --pdb-search-paths=Temp/ManagedSymbols/
 --method=UnityEngine.U2D.Animation.BurstedSpriteSkinUtilities, Unity.2D.Animation.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::ValidateBoneWeights(Unity.Collections.NativeSlice`1[[UnityEngine.BoneWeight, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--5bf0a813706ef9287fcaa55dd0ccb876

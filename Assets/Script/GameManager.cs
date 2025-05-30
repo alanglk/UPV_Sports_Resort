@@ -92,8 +92,8 @@ public class GameManager  : MonoBehaviour
     
     public void AddScore(int amount)
     {
-        if(launchInterval > 0.5f) {
-            launchInterval = launchInterval * 0.95f;
+        if(launchInterval > 1.0f) {
+            launchInterval = launchInterval * 0.96f;
         }
         score += amount;
         UpdateScoreUI();

@@ -17,6 +17,7 @@ public class BatCollider : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        audioSource.PlayOneShot(hitSound);
         GameObject ball = collision.gameObject;
         if (ball.CompareTag("ball_baseball") || ball.CompareTag("ball_soccer") || ball.CompareTag("ball_tennis") || ball.CompareTag("ball_basketball"))
         {
@@ -28,7 +29,6 @@ public class BatCollider : MonoBehaviour
     private void StoreResults(GameObject ball)
     {
         // int pointsToAdd = 0;
-
         if (ball.CompareTag("ball_baseball"))
             gameManager.AddScore(3);
         else if (ball.CompareTag("ball_tennis"))
@@ -45,13 +45,12 @@ public class BatCollider : MonoBehaviour
         Rigidbody rb = collision.rigidbody;
         if (rb != null)
         {
-            // Direcci�n desde el bate hacia el centro de contacto
+            // Direccion desde el bate hacia el centro de contacto
             Vector3 hitDirection = collision.contacts[0].point - transform.position;
             hitDirection = hitDirection.normalized;
 
-            // A�adir impulso
+            // add impulso
             rb.AddForce(hitDirection * hitForce, ForceMode.Impulse);
-            audioSource.PlayOneShot(hitSound);
         }
     }
 }
