@@ -65321,6 +65321,10 @@ struct BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE  : public MonoBehav
 	float ___hitForce_4;
 	// GameManager BatCollider::gameManager
 	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___gameManager_5;
+	// UnityEngine.AudioClip BatCollider::hitSound
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___hitSound_6;
+	// UnityEngine.AudioSource BatCollider::audioSource
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSource_7;
 };
 
 // BatRV

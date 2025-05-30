@@ -3932,6 +3932,10 @@ struct BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE  : public MonoBehav
 	float ___hitForce_4;
 	// GameManager BatCollider::gameManager
 	GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* ___gameManager_5;
+	// UnityEngine.AudioClip BatCollider::hitSound
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___hitSound_6;
+	// UnityEngine.AudioSource BatCollider::audioSource
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSource_7;
 };
 
 // BatRV
@@ -9742,6 +9746,25 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool BallTrajectoryPredictor_U3CUpdateU3Eb__8
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void BatCollider::Start()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BatCollider_Start_m4874D12C6EA0A73BFFF4282B23AB0259F1F7DE38 (BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisAudioSource_t871AC2272F896738252F04EE949AEF5B241D3299_m42DA4DEA19EB60D80CBED7413ADEB27FA033C77B_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// audioSource = GetComponent<AudioSource>();
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_0;
+		L_0 = Component_GetComponent_TisAudioSource_t871AC2272F896738252F04EE949AEF5B241D3299_m42DA4DEA19EB60D80CBED7413ADEB27FA033C77B(__this, Component_GetComponent_TisAudioSource_t871AC2272F896738252F04EE949AEF5B241D3299_m42DA4DEA19EB60D80CBED7413ADEB27FA033C77B_RuntimeMethod_var);
+		__this->___audioSource_7 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___audioSource_7), (void*)L_0);
+		// }
+		return;
+	}
+}
 // System.Void BatCollider::OnCollisionEnter(UnityEngine.Collision)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BatCollider_OnCollisionEnter_mEEDCA405E7700C8553136671D68F4C9FF2749D52 (BatCollider_tDC803DD8C13808682490E7CCD44D2B601D0E0FDE* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_collision, const RuntimeMethod* method) 
 {
@@ -9756,64 +9779,69 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BatCollider_OnCollisionEnter_mEEDCA405E7
 	}
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_0 = NULL;
 	{
-		// GameObject ball = collision.gameObject;
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_0 = ___0_collision;
+		// audioSource.PlayOneShot(hitSound);
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_0 = __this->___audioSource_7;
+		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_1 = __this->___hitSound_6;
 		NullCheck(L_0);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1;
-		L_1 = Collision_get_gameObject_m846FADBCA43E1849D3FE4D5EA44C02D055A70B3E(L_0, NULL);
-		V_0 = L_1;
-		// if (ball.CompareTag("ball_baseball") || ball.CompareTag("ball_soccer") || ball.CompareTag("ball_tennis") || ball.CompareTag("ball_basketball"))
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = V_0;
+		AudioSource_PlayOneShot_m098BCAE084AABB128BB19ED805D2D985E7B75112(L_0, L_1, NULL);
+		// GameObject ball = collision.gameObject;
+		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_2 = ___0_collision;
 		NullCheck(L_2);
-		bool L_3;
-		L_3 = GameObject_CompareTag_m6378BE50D009A93D46036F74CC3F7E2ECB0636E5(L_2, _stringLiteral7687FC322A4D3702774185A2E68555AFB53B3268, NULL);
-		if (L_3)
-		{
-			goto IL_003b;
-		}
-	}
-	{
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_3;
+		L_3 = Collision_get_gameObject_m846FADBCA43E1849D3FE4D5EA44C02D055A70B3E(L_2, NULL);
+		V_0 = L_3;
+		// if (ball.CompareTag("ball_baseball") || ball.CompareTag("ball_soccer") || ball.CompareTag("ball_tennis") || ball.CompareTag("ball_basketball"))
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_4 = V_0;
 		NullCheck(L_4);
 		bool L_5;
-		L_5 = GameObject_CompareTag_m6378BE50D009A93D46036F74CC3F7E2ECB0636E5(L_4, _stringLiteral7D5EB75125156F9E6C1D868C1D1F9191E1EAD531, NULL);
+		L_5 = GameObject_CompareTag_m6378BE50D009A93D46036F74CC3F7E2ECB0636E5(L_4, _stringLiteral7687FC322A4D3702774185A2E68555AFB53B3268, NULL);
 		if (L_5)
 		{
-			goto IL_003b;
+			goto IL_004c;
 		}
 	}
 	{
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_6 = V_0;
 		NullCheck(L_6);
 		bool L_7;
-		L_7 = GameObject_CompareTag_m6378BE50D009A93D46036F74CC3F7E2ECB0636E5(L_6, _stringLiteralB55B2E694C97C02680E16DBF401BBCDF9A519990, NULL);
+		L_7 = GameObject_CompareTag_m6378BE50D009A93D46036F74CC3F7E2ECB0636E5(L_6, _stringLiteral7D5EB75125156F9E6C1D868C1D1F9191E1EAD531, NULL);
 		if (L_7)
 		{
-			goto IL_003b;
+			goto IL_004c;
 		}
 	}
 	{
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8 = V_0;
 		NullCheck(L_8);
 		bool L_9;
-		L_9 = GameObject_CompareTag_m6378BE50D009A93D46036F74CC3F7E2ECB0636E5(L_8, _stringLiteralD3495B7384BE0F88BB8898B82763BC025743D445, NULL);
-		if (!L_9)
+		L_9 = GameObject_CompareTag_m6378BE50D009A93D46036F74CC3F7E2ECB0636E5(L_8, _stringLiteralB55B2E694C97C02680E16DBF401BBCDF9A519990, NULL);
+		if (L_9)
 		{
-			goto IL_0049;
+			goto IL_004c;
+		}
+	}
+	{
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_10 = V_0;
+		NullCheck(L_10);
+		bool L_11;
+		L_11 = GameObject_CompareTag_m6378BE50D009A93D46036F74CC3F7E2ECB0636E5(L_10, _stringLiteralD3495B7384BE0F88BB8898B82763BC025743D445, NULL);
+		if (!L_11)
+		{
+			goto IL_005a;
 		}
 	}
 
-IL_003b:
+IL_004c:
 	{
 		// StoreResults(ball);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_10 = V_0;
-		BatCollider_StoreResults_m9CD125381438989B71C644D53F4A904E8A72167C(__this, L_10, NULL);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_12 = V_0;
+		BatCollider_StoreResults_m9CD125381438989B71C644D53F4A904E8A72167C(__this, L_12, NULL);
 		// LaunchBall(collision);
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_11 = ___0_collision;
-		BatCollider_LaunchBall_m048A7B51671E83FBA36D2893ECF8F3D6C557CCA1(__this, L_11, NULL);
+		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_13 = ___0_collision;
+		BatCollider_LaunchBall_m048A7B51671E83FBA36D2893ECF8F3D6C557CCA1(__this, L_13, NULL);
 	}
 
-IL_0049:
+IL_005a:
 	{
 		// }
 		return;
@@ -10912,17 +10940,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_AddScore_m7F9C51FCFD3F61B8B6970D9D09D812790371B143 (GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* __this, int32_t ___0_amount, const RuntimeMethod* method) 
 {
 	{
-		// if(launchInterval > 0.5f) {
+		// if(launchInterval > 1.0f) {
 		float L_0 = __this->___launchInterval_8;
-		if ((!(((float)L_0) > ((float)(0.5f)))))
+		if ((!(((float)L_0) > ((float)(1.0f)))))
 		{
 			goto IL_001f;
 		}
 	}
 	{
-		// launchInterval = launchInterval * 0.95f;
+		// launchInterval = launchInterval * 0.96f;
 		float L_1 = __this->___launchInterval_8;
-		__this->___launchInterval_8 = ((float)il2cpp_codegen_multiply(L_1, (0.949999988f)));
+		__this->___launchInterval_8 = ((float)il2cpp_codegen_multiply(L_1, (0.959999979f)));
 	}
 
 IL_001f:
