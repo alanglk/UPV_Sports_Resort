@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7478871154079241027}
   - component: {fileID: 502479157867069388}
   - component: {fileID: -1715215540067293934}
+  - component: {fileID: 4681754617817439764}
   m_Layer: 0
   m_Name: Tennis
   m_TagString: ball_tennis
@@ -129,3 +130,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.035
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4681754617817439764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7616781791177772189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84b61248b9576cd8b70759d8f417e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: a58ff1bb511fb54c5a1f14144cacff7a, type: 3}

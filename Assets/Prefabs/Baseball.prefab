@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2141045706093511777}
   - component: {fileID: 5799329414379356051}
   - component: {fileID: 1249482207817467683}
+  - component: {fileID: 4404505745001613462}
   m_Layer: 0
   m_Name: Baseball
   m_TagString: ball_baseball
@@ -114,3 +115,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.037999995
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4404505745001613462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483707917963093428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84b61248b9576cd8b70759d8f417e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: a58ff1bb511fb54c5a1f14144cacff7a, type: 3}
