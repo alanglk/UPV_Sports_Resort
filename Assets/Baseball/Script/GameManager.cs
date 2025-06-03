@@ -6,6 +6,10 @@ using TMPro;
 
 public class GameManager  : MonoBehaviour
 {
+    [Header("Objects")]
+    public GameObject[] gameObjects;
+    public bool isActive;
+
     [Header("Cannons")]
     public Transform[] cannonFirePoints;
 
@@ -18,7 +22,7 @@ public class GameManager  : MonoBehaviour
     public float launchInterval = 4f;
     
     [Header("Timing")]
-    private float tiempoRestante = 120f;
+    private float timer = 120f;
     public TMP_Text timerText;
     public TMP_Text scoreText;
 
@@ -28,41 +32,44 @@ public class GameManager  : MonoBehaviour
     public AudioClip hitSound;
     private AudioSource audioSource;
 
-    void Start()
+    void Start() {
+        isActive = false;
+    }
+    void InitializeMinigame()
     {
+        score = 0;
+        timer = 120f;
+        isActive = true;
+
         scoreText.text = "Score: 0";
         timerText.text = "Time: 02:00";
         audioSource = GetComponent<AudioSource>();
 
         StartCoroutine(LaunchRoutine());
-        // UpdateScoreUI();
     }
 
-    void Update(){
-        if (!juegoActivo) return;
-        tiempoRestante -= Time.deltaTime;
+    void Update() {
+        if (isActive) {
+            if (!juegoActivo) return;
+            timer -= Time.deltaTime;
 
-        if(tiempoRestante <= 2f)
-        {
-            tiempoRestante = 0f;
-            GameOver();
+            if(timer <= 2f)
+            {
+                timer = 0f;
+                EndMiniGame();
+            }
+            int minutes = Mathf.FloorToInt(timer / 60f);
+            int seconds = Mathf.FloorToInt(timer % 60f);
+            timerText.text = $"Tiempo: {minutes:00}:{seconds:00}";
         }
-        int minutes = Mathf.FloorToInt(tiempoRestante / 60f);
-        int seconds = Mathf.FloorToInt(tiempoRestante % 60f);
-        timerText.text = $"Tiempo: {minutes:00}:{seconds:00}";
     }
 
     IEnumerator LaunchRoutine() {
-        while (tiempoRestante > 0f) {
+        while (timer > 0f) {
             yield return new WaitForSeconds(launchInterval);
             LaunchRandomCannon();
             audioSource.PlayOneShot(hitSound);
-            // int minutes = Mathf.FloorToInt(tiempoRestante / 60f);
-            // int seconds = Mathf.FloorToInt(tiempoRestante % 60f);
-            // tiempoRestante -= Time.deltaTime;
-            // timerText.text = $"Tiempo: {minutes:00}:{seconds:00}"; 
         }
-        // GameOver();
     }
 
     void LaunchRandomCannon() {
@@ -104,8 +111,21 @@ public class GameManager  : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
     }
 
-    void GameOver() {
+    void EndMiniGame() {
         scoreText.text = "Game Over\nScore: " + score;
         timerText.text = "Time: 00:00";
+        isActive = false;
+    }
+
+    int getScore() {
+        return score;
+    }
+
+    void loadMiniGame() {
+        foreach(GameObject obj in gameObjects) { obj.SetActive(true); } 
+    }
+
+    void unloadMiniGame() {
+        foreach(GameObject obj in gameObjects) { obj.SetActive(false); } 
     }
 }
