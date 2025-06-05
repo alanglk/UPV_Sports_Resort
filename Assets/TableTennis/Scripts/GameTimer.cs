@@ -7,6 +7,8 @@ public class GameTimer : MonoBehaviour
     public TMP_Text timerText;
     public bool timerIsRunning = true;
 
+
+
     void Update()
     {
         if (timerIsRunning)
@@ -37,7 +39,6 @@ public class GameTimer : MonoBehaviour
 
     void DisplayTime(float timeToDisplay)
     {
-        timeToDisplay += 1;
         int minutes = Mathf.FloorToInt(timeToDisplay / 60);
         int seconds = Mathf.FloorToInt(timeToDisplay % 60);
 

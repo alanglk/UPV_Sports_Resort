@@ -54,11 +54,13 @@ public class PaddleAI : MonoBehaviour
 
             RaycastHit hit;
             if (Physics.Raycast(paddleRigidbody.position, direction, out hit, minDistance)){
-                
-                if (hit.transform == ball){
+
+                if (hit.transform == ball)
+                {
                     Debug.Log("La pala ha colisionado con la pelota!");
                     Vector3 targetPoint = GetRandomTargetPoint(targetTransform, 1.0f);
                     ballController.LaunchBallToTarget(targetTransform.position, maxHeight);
+                    ballPointsCounter.ballState = PointsCounter.BallState.HitByOpponent;
                 }
             }
         }
